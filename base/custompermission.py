@@ -2,7 +2,7 @@ from rest_framework.permissions import BasePermission,SAFE_METHODS
 
 class custom_permission_data(BasePermission):
     def has_permission(self, request, view):
-        print(request.user.role,"------")
+        
         user=request.user
         if request.method=="GET":
             if user.role=="Student":
@@ -44,8 +44,6 @@ class custom_permission2(BasePermission):
         """
          
         user = request.user
-        print('obj----',obj)
-        print('user_Data-------',user)
 
         # 1. Safe methods (GET, HEAD, OPTIONS) are allowed with restrictions
         if request.method in SAFE_METHODS:
